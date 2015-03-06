@@ -13,10 +13,8 @@ class N2A
   convert: (buffer, type) ->
     word = buffer.getText()
     switch type
-      when 'native'
-        buffer.setText(@aton(word))
-      when 'ascii'
-        buffer.setText(@ntoa(word))
+      when 'native' then buffer.setText(@aton(word))
+      when 'ascii' then buffer.setText(@ntoa(word))
 
   # Native to Ascii
   #
