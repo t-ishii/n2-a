@@ -13,8 +13,8 @@ class N2A
   convert: (buffer, type) ->
     word = buffer.getText()
     switch type
-        when 'native' then buffer.setText(@aton(word))
-        when 'ascii' then buffer.setText(@ntoa(word))
+      when 'native' then buffer.setText(@aton(word))
+      when 'ascii' then buffer.setText(@ntoa(word))
 
   # Native to Ascii
   #
@@ -48,18 +48,18 @@ class N2A
 
       index = word.indexOf '\\u'
 
-      if index is - 1
+      if index is -1
         na += word
         break
 
-        if 0 < index
-          na += word.substring(0, index)
+    　if 0 < index
+        na += word.substring(0, index)
 
-          if (index + 6) <= word.length
-            tmp = parseInt(word.substring(index + 2, index + 6), 16)
-            na += String.fromCharCode tmp
-              word = word.substring(index + 6)
-          else
-            break
+      if (index + 6) <= word.length
+        tmp = parseInt(word.substring(index + 2, index + 6), 16)
+        na += String.fromCharCode tmp
+        word = word.substring(index + 6)
+      else
+        break
 
     na
