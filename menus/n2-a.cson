@@ -1,0 +1,18 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    { 'label': 'toAscii', 'command': 'n2-a:toAscii' }
+    { 'label': 'toNative', 'command': 'n2-a:toNative' }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'n2-a'
+      'submenu': [
+        { 'label': 'toAscii', 'command': 'n2-a:toAscii' }
+        { 'label': 'toNative', 'command': 'n2-a:toNative' }
+      ]
+    ]
+  }
+]
