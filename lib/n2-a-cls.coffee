@@ -43,12 +43,14 @@ class N2A
   aton: (word) ->
 
     na = ''
+    codePattern = /\\u[0-9A-Fa-f]{4}/;
 
     while word.length > 0
 
-      index = word.indexOf '\\u'
+      hit = codePattern.exec word
+      index = hit?.index
 
-      if index is -1
+      unless index?
         na += word
         break
 
