@@ -43,7 +43,7 @@ class N2A
   aton: (word) ->
 
     na = ''
-    codePattern = /\\u[0-9A-Fa-f]{4}/;
+    codePattern = /\\u[0-9A-Fa-f]{4}/
 
     while word.length > 0
 
