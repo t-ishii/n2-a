@@ -1,5 +1,7 @@
-# n2-a package
+# n2-a
 
-Native to Ascii or Ascii to Native
+"Native to Ascii" or "Ascii to Native"
 
-![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+## Installation
+
+`$ apm install n2-a`
