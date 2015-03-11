@@ -25,9 +25,13 @@ class N2A
 
     while word.length > 0
 
+      # 1文字取得
       t = word.substring(0, 1)
+
+      # 16進数へ変換
       tmp = t.charCodeAt().toString(16)
 
+      # 元文字列から1文字減らす
       word = word.substring(1)
 
       if tmp.length >= 4
@@ -50,17 +54,26 @@ class N2A
       hit = codePattern.exec word
       index = hit?.index
 
+      # Ascii文字を含んでない場合は終了
       unless index?
         na += word
         break
 
-      na = na + word.substring(0, index) if 0 < index
-
-      if (index + 6) <= word.length
-        tmp = parseInt(word.substring(index + 2, index + 6), 16)
-        na += String.fromCharCode(tmp)
+      # 直前の文字がエスケープだった場合次の検索を実行
+      if 0 < index and /^\\\\/.test word.substring(index - 1, index + 1)
+        na += word.substring(0, index + 6)
         word = word.substring(index + 6)
-      else
-        break
+        continue
+
+      # ASCII文字直前の文字列取得
+      na += word.substring(0, index) if 0 < index
+
+      # ascii -> native
+      na += String.fromCharCode(
+        parseInt(word.substring(index + 2, index + 6), 16)
+      )
+
+      # 文字列の再設定
+      word = word.substring(index + 6)
 
     na
