@@ -4,15 +4,21 @@ class N2A
 
   toNative: (@editor=atom.workspace.getActiveTextEditor()) ->
     if @editor?
+      # save cursor position
       cursor = @editor.getCursorBufferPosition()
+      # convert text a -> n
       @convert(@editor.buffer, 'native')
+      # load cursor position
       @editor.setCursorBufferPosition(cursor)
     return
 
   toAscii: (@editor=atom.workspace.getActiveTextEditor()) ->
     if @editor?
+      # save cursor position
       cursor = @editor.getCursorBufferPosition()
+      # convert text n -> a
       @convert(@editor.buffer, 'ascii')
+      # load cursor position
       @editor.setCursorBufferPosition(cursor)
     return
 
