@@ -3,12 +3,18 @@ module.exports =
 class N2A
 
   toNative: (@editor=atom.workspace.getActiveTextEditor()) ->
-    return unless @editor?
-    @convert(@editor.buffer, 'native')
+    if @editor?
+      cursor = @editor.getCursorBufferPosition()
+      @convert(@editor.buffer, 'native')
+      @editor.setCursorBufferPosition(cursor)
+    return
 
-  toAscii: (@editor = atom.workspace.getActiveTextEditor()) ->
-    return unless @editor?
-    @convert(@editor.buffer, 'ascii')
+  toAscii: (@editor=atom.workspace.getActiveTextEditor()) ->
+    if @editor?
+      cursor = @editor.getCursorBufferPosition()
+      @convert(@editor.buffer, 'ascii')
+      @editor.setCursorBufferPosition(cursor)
+    return
 
   convert: (buffer, type) ->
     word = buffer.getText()
