@@ -6,7 +6,7 @@ N2A = require '../lib/n2-a-cls'
 # or `fdescribe`). Remove the `f` to unfocus the block.
 
 describe "N2A", ->
-  [activationPromise, n2a] = []
+  n2a = null
 
   beforeEach ->
     n2a = new N2A()
