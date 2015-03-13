@@ -11,7 +11,7 @@ describe "N2A", ->
   beforeEach ->
     n2a = new N2A()
 
-  describe "cherck converter", ->
+  describe "check converter", ->
     it "native -> ascii", ->
       expect(n2a.ntoa "テスト").toBe("\\u30c6\\u30b9\\u30c8")
 
