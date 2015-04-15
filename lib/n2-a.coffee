@@ -15,7 +15,7 @@ module.exports =
         n2A.toAscii()
 
   deactivate: ->
-    @commands.destroy()
+    @commands.dispose()
 
   # Private: Loads the module on-demand.
   loadModule: ->
