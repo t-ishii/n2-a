@@ -6,12 +6,12 @@ N2A = require '../lib/n2-a-cls'
 # or `fdescribe`). Remove the `f` to unfocus the block.
 
 describe "N2A", ->
-  [activationPromise, n2a] = []
+  n2a = null
 
   beforeEach ->
     n2a = new N2A()
 
-  describe "cherck converter", ->
+  describe "check converter", ->
     it "native -> ascii", ->
       expect(n2a.ntoa "テスト").toBe("\\u30c6\\u30b9\\u30c8")
 
