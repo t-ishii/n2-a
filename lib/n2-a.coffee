@@ -3,6 +3,13 @@ n2A = null
 
 module.exports =
 
+  config:
+    isUpperCase:
+      title: 'Used upper case.'
+      description: '\\u30cd -> \\u30CD'
+      type: 'boolean'
+      default: false
+
   # Public: Activates the package.
   activate: ->
     @commands = atom.commands.add 'atom-workspace',
