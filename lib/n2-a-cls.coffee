@@ -26,12 +26,15 @@ class N2A
     word = buffer.getText()
     switch type
       when 'native' then buffer.setText(@aton(word))
-      when 'ascii' then buffer.setText(@ntoa(word))
+      when 'ascii' then buffer.setText(
+        @ntoa(word, atom.config.get 'n2-a.isUpperCase')
+      )
 
   # Native to Ascii
   #
   # * `word` {String} active text
-  ntoa: (word) ->
+  # * 'isUpperCase' {Boolean} is upper case opt
+  ntoa: (word, isUpperCase) ->
 
     ascii = ''
 
@@ -47,6 +50,7 @@ class N2A
       word = word.substring(1)
 
       if tmp.length >= 4
+        tmp = tmp.toUpperCase() if isUpperCase
         ascii += '\\u' + tmp
       else
         ascii += t
